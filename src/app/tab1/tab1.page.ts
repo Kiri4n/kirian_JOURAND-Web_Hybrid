@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Device } from '@capacitor/device';
+import {ex1} from "../services/ex1.service";
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(public deviceInfo: ex1) {}
 
+  async ngOnInit() {
+    await this.deviceInfo.loadDeviceInfo();
+  }
 }
